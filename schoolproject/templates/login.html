@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+         form {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          box-sizing: border-box;
+
+
+        }
+
+    </style>
+</head>
+<body style="background-image:url({% static 'img/log.jpg' %});background-size: cover;">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="form fixed-center">
+                <form action="form" method="post">
+                     {% csrf_token%}
+                  <input type="text" name="username" placeholder="Enter your username"><br>
+                  <input type="password" name="password" placeholder="Enter your password"><br>
+                  <input class="btn btn-success" type="submit" name="Submit"><br>
+                  <a href="{% url 'schoolapp:register' %}">Register Here</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

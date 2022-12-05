@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        a{
+
+          position: relative;
+          left: 300px;
+          top:500px;
+          font-size:22px;
+          color:darkblue;
+        }
+
+    </style>
+</head>
+<body  style="background-image:url({% static 'img/result.jpg' %});background-repeat: no-repeat;">
+<a href="{% url 'schoolapp:home' %}">......Return to Home Page Click Here......</a>
+</body>
+</html>
+{% endblock %}
