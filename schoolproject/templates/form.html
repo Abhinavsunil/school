@@ -14,32 +14,63 @@
           display: inline-block;
           box-sizing: border-box;
         }
+
+
     </style>
+
+       <script>
+function validateForm() {
+  let x = document.forms["myForm"]["name"].value;
+  if (x == "") {
+    alert("Given field to be filled out");
+    return false;
+  }
+}
+</script>
 </head>
 <body style="background-image:url({% static 'img/Form.jpg' %});background-size: cover;">
-<form action="result" method="post">
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+<form name="myForm" action="result" onsubmit="return validateForm()" method="post">
     {% csrf_token%}
     <input type="text" name="name" placeholder="Enter your name"><br>
     <input type="date" name="dob" placeholder="Enter your date of birth"><br>
     <input type="number" name="age" placeholder="Enter your age"><br>
-    <input type="text" name="gender" placeholder="Enter your gender"><br>
+    <input type="radio" name="Male" placeholder="Enter your gender">Male
+    <input type="radio" name="Female" placeholder="Enter your gender">Female<br>
     <input type="number" name="mobile" placeholder="Enter your mobile number"><br>
     <input type="email" name="email" placeholder="Enter your email"><br>
-    <input type="text" name="department" placeholder="Enter your department"><br>
-    <input type="text" name="course" placeholder="Enter your course"><br>
-    <input type="text" name="purpose" placeholder="Enter your purpose"><br>
+    <select name="Department" id="Department">
+        <option value="Department">Department</option>
+        <option value="Science">Science</option>
+        <option value="commerce">Commerce</option>
+        <option value="Humanities">Humanities</option>
+    </select><br>
+        <select name="course" id="course">
+        <option value="course">Course</option>
+        <option value="Science">Biology Science</option>
+        <option value="Science">Computer Science</option>
+        <option value="commerce">Computer Commerce</option>
+        <option value="commerce">Mathematical Commerce</option>
+        <option value="Humanities">Geography</option>
+        <option value="Humanities">History</option>
+    </select><br>
+
+
     <input type="checkbox" name="material provide"> debit Note Book
     <input type="checkbox" name="material provide" >Exam Pappers
     <input type="checkbox" name="material provide">Pen<br>
 
-
     <input class="btn btn-primary" type="submit"><br>
 
-    <a class="btn btn-danger" href="{% url 'schoolapp:home' %}" role="button">Logout</a>
-
-
+    <a class="btn btn-danger" href="{% url 'schoolapp:home' %}" role="button">Logout</a><br>
 
 </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
 {% endblock %}

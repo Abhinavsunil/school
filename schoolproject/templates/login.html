@@ -19,13 +19,25 @@
         }
 
     </style>
+
+    <script>
+function validateForm() {
+  let x = document.forms["myForm"]["username"].value;
+  if (x == "") {
+    alert("username and password must be filled out");
+    return false;
+  }
+}
+</script>
+
+
 </head>
 <body style="background-image:url({% static 'img/log.jpg' %});background-size: cover;">
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
             <div class="form fixed-center">
-                <form action="form" method="post">
+                <form name="myForm" action="form" onsubmit="return validateForm()" method="post">
                      {% csrf_token%}
                   <input type="text" name="username" placeholder="Enter your username"><br>
                   <input type="password" name="password" placeholder="Enter your password"><br>

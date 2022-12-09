@@ -1,10 +1,10 @@
 from . import views
-from django.urls import path,include
+from django.urls import path
 app_name='schoolapp'
 urlpatterns = [
     path('',views.home,name='home'),
-    path('login',views.login,name='login'),
+    path('login',views.log,name='login'),
     path('form',views.form,name='form'),
-    path('/register',views.register,name='register'),
+    path('register',views.reg,name='register'),
     path('result',views.result,name='result')
 ]

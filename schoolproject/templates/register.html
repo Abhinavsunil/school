@@ -19,13 +19,24 @@
         }
 
     </style>
+
+    <script>
+function validateForm() {
+  let x = document.forms["myForm"]["user_name"].value;
+  if (x == "") {
+    alert("Given field to be filled out");
+    return false;
+  }
+}
+</script>
+
 </head>
 <body style="background-image:url({% static 'img/reg.jpg' %});background-size: cover;">
-<form action="login" method="post">
+<form name="myForm" action="login" onsubmit="return validateForm()" method="post">
     {% csrf_token%}
-    <input type="text" name="username" placeholder="Enter your username"><br>
-    <input type="password" name="password" placeholder="Enter your password"><br>
-    <input type="password" name="confirm password" placeholder="Confirm your password"><br>
+    <input type="text" name="user_name" placeholder="Enter your username"><br>
+    <input type="password" name="pass_word" placeholder="Enter your password"><br>
+    <input type="password" name="confirm_password" placeholder="Confirm your password"><br>
     <input type="submit">
 </form>
 </body>
